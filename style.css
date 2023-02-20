@@ -1,0 +1,80 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Ghotam Rounded, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(45deg, #00AAFF, #00FF6C);
+    background-size: 100% 100%;
+    animation: colors 15s ease infinite;
+}
+
+@keyframes colors {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%
+    }
+}
+
+.calculadora {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculadora > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background: rgba(255,255,255, .75);
+}
+
+.calculadora > button:hover {
+    background: rgba(255,255,255, .9);
+}
+
+.span-two {
+    grid-column: span 2;
+  }
+
+.calculadora__saida {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 15px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.calculadora__saida .calculadora__resultados {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+
+.calculadora__saida .calculadora__operacao {
+    color: white;
+    font-size: 2.5rem;
+}
+
+@media screen and (max-width: 425px) {
+    .calculadora {        
+        grid-template-columns: repeat(4, 73px);
+        grid-template-rows: minmax(120px, auto) repeat(5, 75px);
+    }
+}
